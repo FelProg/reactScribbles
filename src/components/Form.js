@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Form(){
 
-    const [inputData,setInputData] = React.useState({firstName:"",lastName:""});
+    const [inputData,setInputData] = React.useState({firstName:"",lastName:"",email:""});
 
     console.log(inputData);
 
@@ -28,6 +28,14 @@ export default function Form(){
             <label htmlFor="lastName">Last name</label>
             <input
                 name="lastName"
+                type="text"
+                onChange={handleInput}
+            >
+            </input>
+            <br />
+            <label htmlFor="email">Email</label>
+            <input
+                name="email"
                 type="text"
                 onChange={handleInput}
             >
