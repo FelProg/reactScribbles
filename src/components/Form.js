@@ -2,18 +2,23 @@ import React from "react";
 
 export default function Form(){
 
+    //inicialización de la variable inputData con un objeto
+    //de 5 key : value
     const [inputData,setInputData] = React.useState({
         firstName:"",
         lastName:"",
         email:"",
         comments:"",
-        isVerified:true
+        isVerified:true,
+        employmentType:""
     });
 
-    console.log(inputData);
+    //debbug console
+    console.log(inputData.employmentType);
 
     function handleInput(event){
         
+        //se destructura event.target en la propiedades.
         const { name, value, type, checked} = event.target
 
 
@@ -21,6 +26,9 @@ export default function Form(){
             return{
                 ...prevValue, [name]: type === "checkbox" ? checked : value
             }
+            //se lee. obtén todas las propiedades del objeto
+            //pero modifica name con los valores de checked o de value
+            //si se cumple la condición del ternario.
         })
     }
 
@@ -32,7 +40,7 @@ export default function Form(){
                 name="firstName"
                 type="text"
                 onChange={handleInput}
-                value={inputData.firstName}
+                value={inputData.firstName} 
             >
             </input>
             <br />
@@ -71,6 +79,39 @@ export default function Form(){
             <label htmlFor="isVerified">
                 Eres amistoso?
             </label>
+
+
+            <fieldset className="radio-inputs">
+                <legend>job details</legend>
+
+                <label><input 
+                    type="radio" 
+                    name="employmentType" //same as state property
+                    id="Unemployed"
+                    value="Unemployed"
+                    checked={inputData.employmentType === "Unemployed"}
+                    onChange={handleInput}    
+                />Unemployed</label><br />
+
+                <label><input 
+                    type="radio"
+                    name="employmentType" //same as state property
+                    id="Full-Time"
+                    value="Full-Time"
+                    checked={inputData.employmentType === "Full-Time"}
+                    onChange={handleInput}     
+                />Full-Time</label><br />
+
+                <label><input 
+                    type="radio"
+                    name="employmentType" //same as state property
+                    id="Part-Time"
+                    value="Part-Time"
+                    checked={inputData.employmentType === "Part-Time"}
+                    onChange={handleInput}     
+                />Part-Time</label><br />
+
+            </fieldset>
             
 
         </form>

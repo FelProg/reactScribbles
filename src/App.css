@@ -33,3 +33,15 @@ textarea{
   width: fit-content;
   margin-right: 1rem;
 }
+
+.radio-inputs{
+  text-align: left;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.radio-inputs > label input {
+  border: 1px solid white;
+  width: fit-content;
+  
+}
