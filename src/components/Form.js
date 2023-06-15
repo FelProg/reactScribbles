@@ -2,14 +2,24 @@ import React from "react";
 
 export default function Form(){
 
-    const [inputData,setInputData] = React.useState({firstName:"",lastName:"",email:"",comments:""});
+    const [inputData,setInputData] = React.useState({
+        firstName:"",
+        lastName:"",
+        email:"",
+        comments:"",
+        isVerified:true
+    });
 
     console.log(inputData);
 
     function handleInput(event){
+        
+        const { name, value, type, checked} = event.target
+
+
         setInputData( prevValue => {
             return{
-                ...prevValue, [event.target.name]:event.target.value
+                ...prevValue, [name]: type === "checkbox" ? checked : value
             }
         })
     }
@@ -50,6 +60,18 @@ export default function Form(){
                 onChange={handleInput}
                 value={inputData.comments}
             />
+            <br />
+            <input 
+                type="checkbox"
+                name="isVerified"
+                id="isVerified"
+                onChange={handleInput}
+                checked={inputData.isVerified}
+            />
+            <label htmlFor="isVerified">
+                Eres amistoso?
+            </label>
+            
 
         </form>
     );

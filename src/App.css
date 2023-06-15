@@ -28,3 +28,8 @@ textarea{
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+#isVerified{
+  width: fit-content;
+  margin-right: 1rem;
+}
