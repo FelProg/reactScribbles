@@ -10,7 +10,8 @@ export default function Form(){
         email:"",
         comments:"",
         isVerified:true,
-        employmentType:""
+        employmentType:"",
+        favColor:""
     });
 
     //debbug console
@@ -110,6 +111,21 @@ export default function Form(){
                     checked={inputData.employmentType === "Part-Time"}
                     onChange={handleInput}     
                 />Part-Time</label><br />
+                <select
+                    name="favColor"  //poder acceder a la propiedad name del objeto
+                    onChange={handleInput} //va a asignar el valor seleccionado de las opciones
+                                           //a [name]
+                    value={inputData.favColor} //va a utilizar el valor del objeto para
+                                               //asignarselo al estado en el que se encuentre el 
+                                               //select en este momento.
+                >
+                    <option value="">--Choose--</option>
+                    <option value="blue">Blue</option>
+                    <option value="red">Red</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="green">Green</option>
+                    <option value="purple">Purple</option>
+                </select>
 
             </fieldset>
             

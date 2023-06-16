@@ -45,3 +45,8 @@ textarea{
   width: fit-content;
   
 }
+
+select{
+  width: 100%;
+  height: 2rem;
+}
